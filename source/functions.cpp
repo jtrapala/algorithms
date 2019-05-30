@@ -11,8 +11,8 @@ int pow(int base, int num) {
 }
 
 int log(int base, int num) {
-  if(base==num) return 1;
-  return count;
+  if(n==1) return 0;
+  return log(b,n/b)+1;
 }
 
 int chartoint(char c) {
@@ -34,7 +34,7 @@ int ord(char c) {
 }
 
 int max(int x, int y) {
-  return (x > y) ? x : y;
+  return (x>=y) ? x : max(y,x);
 }
 
 int max(int x, int y, int z) {
@@ -42,19 +42,23 @@ int max(int x, int y, int z) {
 }
 
 int min(int x, int y) {
-  return (x < y) ? x : y;
+   return (x<=y) ? x : min(y,x);
 }
 
 int min(int x, int y, int z) {
   return min(x, min(y, z));
 }
 
+//C, return 
 int round(double x, char c) {
-  if (x > 0) {
-    return (c == 'd') ? (int)x : (int)x + 1;
-  } else {
-    return (c == 'd') ? (int)x - 1 : (int)x;
+  if (int(x)==x) return x;
+  if(x<0) return -1 * round((-1 * x), c);
+  else{
+    else if(c=='d') return round(((int)x-1),c); //round down
+    else if()
   }
+  
+  
 }
 
 /*O(n) */
