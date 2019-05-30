@@ -6,13 +6,13 @@ int abs_val(int x) {
 }
 
 int pow(int base, int num) {
-  if(num==0) return 1
+  if(num==0) return 1;
   return base*pow(base,num-1);
 }
 
 int log(int base, int num) {
-  if(n==1) return 0;
-  return log(b,n/b)+1;
+  if(num==1) return 0;
+  return log(base,num/base)+1;
 }
 
 int chartoint(char c) {
@@ -54,8 +54,7 @@ int round(double x, char c) {
   if (int(x)==x) return x;
   if(x<0) return -1 * round((-1 * x), c);
   else{
-    else if(c=='d') return round(((int)x-1),c); //round down
-    else if()
+    if(c=='d') return round(((int)x-1),c); //round down
   }
   
   
