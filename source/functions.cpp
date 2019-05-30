@@ -1,22 +1,17 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "functions.hpp"
-
+//Skipped
 int abs_val(int x) {
   return (x > 0) ? x : x * -1;
 }
 
 int pow(int base, int num) {
-  int ret = 1;
-  for (int i = 0; i < num; ++i) {
-    ret *= base;
-  }
-  return ret;
+  if(num==0) return 1
+  return base*pow(base,num-1);
 }
 
 int log(int base, int num) {
-  int count = 0;
-  for (num; num > 1; num /= base)
-    ++count;
+  if(base==num) return 1;
   return count;
 }
 
