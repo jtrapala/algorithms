@@ -6,7 +6,7 @@
 class String {
  private:
   char* array;
-  int len;
+  unsigned int len;
  public:
   /** Constructors */
   String();
@@ -15,7 +15,8 @@ class String {
 
   /** Destructors */
   ~String();
-
+//For getting length
+unsigned int length(char *);
   /** at(int position)
    * Returns the character at the given position, throws an exception if the
    * position is out of bounds.

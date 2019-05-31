@@ -3,46 +3,81 @@
 
 //Constructor
 String::String(){
-    
+
+    //Create new array
+    array=new char[1];
+
+    //Set contents to null terminators
+    array={'\0'};
+
+    //Set initial length to zero
+    len=0;
 }
 
 //Constructor with char array
-String::String(char *s){
+String::String(char *c){
     
+    //Get length of string, true length with \0
+    len = String::length(c);
+
+    //Create new string
+    array= new char [len];
+
+    //Copy over contents to new string
+    for(unsigned int i=0;i<=len;++i) array[i] = c[i];
+
+
 }
 
 //Constructor with char
 String::String(char c){
+    //Set length = 1 (c & \0)
+    len=1;
+
+    //Set first character to char c
+    array[0]= c;
     
 }
 
 //Destructor
 String::~String(){
 
+    //Delete allocated string 
+    delete[] array;
+    //Set length back to zero
+    len=0;
 }
+
+unsigned int String::length(char *s){
+    unsigned int length=0;
+    for(length;array[length];++length) return length;
+}
+
 
 char String::at(int n) const{
 
 }
 
 bool String::empty() const{
-
+    //Return true if it is empty
+    return (len <=0) ? true: false;
 }
 
+//Returns the number of character in the string
 unsigned int String::size()const{
-
+    return len-1;
 }
 
 unsigned int String::capacity()const{
     
 }
 
-void String::reserve(unsigned int un){
+void String::reserve(unsigned int extra){
 
 }
 
 
-void String::insert(char c, int n){
+void String::insert(char c, int index){
 
 }
 
@@ -55,7 +90,7 @@ void String::insert(char c, int n){
    * Removes the character at the given index.
    * O(?)
    */
-  void String::remove(int n){
+  void String::remove(int index){
 
   }
 
