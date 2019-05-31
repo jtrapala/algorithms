@@ -6,7 +6,7 @@
 class String {
  private:
   char* array;
-
+  int len;
  public:
   /** Constructors */
   String();
