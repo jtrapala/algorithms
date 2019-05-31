@@ -82,7 +82,7 @@ void String::insert(char c, int index){
 }
 
 
-  void String::erase(char c){
+void String::erase(char c){
 
   }
 
@@ -90,7 +90,7 @@ void String::insert(char c, int index){
    * Removes the character at the given index.
    * O(?)
    */
-  void String::remove(int index){
+void String::remove(int index){
 
   }
 
