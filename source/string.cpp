@@ -1,6 +1,11 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "string.hpp"
 
+/*
+    Jane Trapala
+    Due JUNE 4TH, 5 must use recursion
+*/
+
 //Constructor
 String::String(){
 
