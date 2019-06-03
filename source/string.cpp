@@ -1,6 +1,11 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "string.hpp"
 
+/* Jane Trapala
+	DUE: 11:30pm on Jun 4th
+	MUST: 5 recursive functions
+*/
+
 //Constructor
 String::String(){
 
