@@ -192,10 +192,11 @@ return false;
    * O(?)
    */
   void String::concatenate(char *c){
+	  if(length(c) <= 1) append(*c);
 return;
   }
   void String::concatenate(String s){
-return;
+	return;
   }
 
   /** find(char* or char or String)
@@ -204,10 +205,10 @@ return;
    * O(?)
    */
   unsigned int String::find(char *c, int start = 0) const{
-return 0;
+	return 0;
   }
   unsigned int String::find(char c, int start = 0) const{
-return 0;
+	return 0;
   }
   unsigned int String::find(String s, int start = 0) const{
 	  return 0;
