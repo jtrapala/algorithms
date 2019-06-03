@@ -60,16 +60,26 @@ String::~String(){
     len=0;
 }
 
+//This is O(n)
 unsigned int String::length(char *s){
     unsigned int length=0;
     for(length;array[length];++length) return length;
 }
 
-
+ /** at(int position)
+   * Returns the character at the given position, throws an exception if the
+   * position is out of bounds.
+   * O(1)
+   */
 char String::at(int n) const{
 
 }
 
+
+/** empty()
+   * Returns whether or not the string is empty.
+   * O(1)
+   */
 bool String::empty() const{
     //Return true if it is empty
     return (len <=0) ? true: false;
@@ -80,10 +90,20 @@ unsigned int String::size()const{
     return len-1;
 }
 
+
+/** capacity()
+   * Returns the number of characters that the string can hold.
+   * O(1)
+   */
 unsigned int String::capacity()const{
     return cap;
 }
 
+
+ /** reserve(int extra)
+   * Reserves extra amount of characters, extending the capacity of the string.
+   * O(?)
+   */
 void String::reserve(unsigned int extra){
 
 }
@@ -115,7 +135,7 @@ void String::erase(char c){
 
   /** remove(int index)
    * Removes the character at the given index.
-   * O(?)
+   * O(n)
    */
 void String::remove(int index){
 
@@ -123,7 +143,7 @@ void String::remove(int index){
 
   /** append(char)
    * Appends the given character to the string.
-   * O(?)
+   * O(n)
    */
   void String::append(char c){
 
@@ -212,7 +232,7 @@ void String::remove(int index){
    * Shifts all characters ASCII values in the array upwards or downwards by the
    * amount given. This method should also prevent characters from becoming
    * null, or exceeding the ASCII range.
-   * O(?)
+   * O(n)
    */
   void String::shift(int n){
 
@@ -227,7 +247,7 @@ void String::remove(int index){
   /** toInt()
    * Returns the string as an integer, if it can be represented as one.
    * Otherwise throws an exception
-   * O(?)
+   * O(n)
    */
   int String::toInt() const{
       
