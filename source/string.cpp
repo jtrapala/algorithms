@@ -118,6 +118,8 @@ void String::erase(char *end, char c){
 	//Contents of the address end is pointing to
 
 	//If contents == c, then erase them (how?)
+
+	return;
 }
 
 
@@ -138,7 +140,7 @@ void String::erase(char c){
    * O(n)
    */
 void String::remove(int index){
-
+return;
   }
 
   /** append(char)
@@ -171,7 +173,7 @@ void String::remove(int index){
    * O(?)
    */
   void String::prepend(char c){
-
+return;
   }
 
   /** compare(char* or String)
@@ -179,10 +181,10 @@ void String::remove(int index){
    * O(?)
    */
   bool String::compare(char *c) const{
-
+return false;
   }
   bool String::compare(String s) const{
-
+return false;
   }
 
   /** concate(char* or String)
@@ -190,10 +192,10 @@ void String::remove(int index){
    * O(?)
    */
   void String::concatenate(char *c){
-
+return;
   }
   void String::concatenate(String s){
-
+return;
   }
 
   /** find(char* or char or String)
@@ -202,13 +204,13 @@ void String::remove(int index){
    * O(?)
    */
   unsigned int String::find(char *c, int start = 0) const{
-
+return 0;
   }
   unsigned int String::find(char c, int start = 0) const{
-
+return 0;
   }
   unsigned int String::find(String s, int start = 0) const{
-
+	  return 0;
   }
 
   /** reverse()
@@ -250,7 +252,7 @@ void String::remove(int index){
    * O(n)
    */
   int String::toInt() const{
-      
+      return 0;
   }
 
   /** substr(start, end)
@@ -258,5 +260,6 @@ void String::remove(int index){
    * O(?)
    */
   String String::substr(int, int) const{
-
+	  String s;
+	  return s;
   }
