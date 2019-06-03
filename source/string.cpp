@@ -197,12 +197,12 @@ void String::remove(int index){
    */
   void String::reverse(){
 	  //Create 2 pointers to the string
-	  String *a, *b;
+	  char *a, *b;
 
 	//a goes to the start of the string and...
 	a=&(array[0]);
 
-	b=&(array[len-1])
+	b=&(array[len-1]);
 
 	  //Case, if mem adress is same, stop switching
 	  if(a==b) return;
