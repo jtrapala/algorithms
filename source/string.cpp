@@ -4,6 +4,7 @@
 /* Jane Trapala
 	DUE: 11:30pm on Jun 4th
 	MUST: 5 recursive functions
+	To do: Get updated string.hpp file
 */
 
 //Constructor
