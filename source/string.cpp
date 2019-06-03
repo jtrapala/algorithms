@@ -8,10 +8,12 @@ String::String(){
     array=new char[1];
 
     //Set contents to null terminators
-    array={'\0'};
+    array[0]='\0';
 
     //Set initial length to zero
     len=0;
+	//Set capacity
+	cap=len;
 }
 
 //Constructor with char array
@@ -19,13 +21,16 @@ String::String(char *c){
     
     //Get length of string, true length with \0
     len = String::length(c);
-
-    //Create new string
-    array= new char [len];
+	//Capacity will be equal to length
+	cap=len;
+    //Create new string array
+    array= new char [len+1];
 
     //Copy over contents to new string
     for(unsigned int i=0;i<=len;++i) array[i] = c[i];
 
+    //Then set last character to null
+    array[len] = '\0';
 
 }
 
@@ -33,9 +38,16 @@ String::String(char *c){
 String::String(char c){
     //Set length = 1 (c & \0)
     len=1;
-
+	//Set capacity
+	cap=len;
+	//Create new array
+	array = new char[2];
     //Set first character to char c
     array[0]= c;
+	//Set end of array to null
+	array[1]='\0';
+
+	//Array will hold |'c'|'\0'|'\0'|
     
 }
 
@@ -69,7 +81,7 @@ unsigned int String::size()const{
 }
 
 unsigned int String::capacity()const{
-    
+    return cap;
 }
 
 void String::reserve(unsigned int extra){
@@ -82,9 +94,24 @@ void String::insert(char c, int index){
 }
 
 
-void String::erase(char c){
+void String::erase(char *end, char c){
+	//Contents of the address end is pointing to
 
+	//If contents == c, then erase them (how?)
+}
+
+
+
+void String::erase(char c){
+	char *end;
+	end = &(array[len-1]);
+
+	//Check for end of iteration
+	if(end < &(array[0])) return;
+	else erase(end--, c);
   }
+
+
 
   /** remove(int index)
    * Removes the character at the given index.
@@ -100,6 +127,23 @@ void String::remove(int index){
    */
   void String::append(char c){
 
+    //New pointer to new array that will hold end result
+    char *app = new char [len+1]; //Holds 1 more spot for the appended char c
+
+    //Copy the original string array to the new
+    for(int i=0;array[i];++i) app[i] = array[i];
+
+    //Set 1 new space for the appended char c
+    app[len] = c;
+
+    //Set null
+    app[len+1] = '\0';
+
+    //Delete the original
+    delete[] array;
+
+    //Set newly appended as the string array
+    array = app;
   }
 
   /** prepend(char)
@@ -152,7 +196,16 @@ void String::remove(int index){
    * O(?)
    */
   void String::reverse(){
+	  //Create 2 pointers to the string
+	  String *a, *b;
 
+	//a goes to the start of the string and...
+	a=&(array[0]);
+
+	b=&(array[len-1])
+
+	  //Case, if mem adress is same, stop switching
+	  if(a==b) return;
   }
 
   /** shift(int)
@@ -161,8 +214,14 @@ void String::remove(int index){
    * null, or exceeding the ASCII range.
    * O(?)
    */
-  void String::shift(int){
+  void String::shift(int n){
 
+	  //Check if end reaches 0
+	  if(n<=0) return;
+	  //Check for ASCII range and if char will be null
+	  if((array[n] < 'a')&& (array[n] > 'a')&& (array[n] != '\0') && n >=0) array[n]++;
+	  else shift(n--); //If valid, k
+	  
   }
 
   /** toInt()

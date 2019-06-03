@@ -7,6 +7,7 @@ class String {
  private:
   char* array;
   unsigned int len;
+  unsigned int cap;
  public:
   /** Constructors */
   String();
@@ -53,6 +54,10 @@ unsigned int length(char *);
    * O(?)
    */
   void insert(char, int);
+
+//Helper function for erase
+void erase(char *, char);
+
 
   /** erase(char)
    * Erases all copies of the given character from the string.
