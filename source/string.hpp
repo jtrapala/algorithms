@@ -8,6 +8,7 @@ class String {
   char* array;
   unsigned int len;
   unsigned int cap;
+
  public:
   /** Constructors */
   String();
@@ -55,8 +56,8 @@ unsigned int length(char *);
    */
   void insert(char, int);
 
-//Helper function for erase
-void erase(char *, char);
+  //Helper function for erase
+  //void erase(char *, char&);
 
 
   /** erase(char)
@@ -134,14 +135,6 @@ void erase(char *, char);
   String substr(int, int) const;
 };
 
-TEST_CASE("Append") {
-  String s;
-  for (int i = 0; i < 10; ++i)
-    s.append('a' + i);
-  for (int i = 0; i < 10; ++i)
-    CHECK_EQ(s.at(i), 'a' + i);
-}
-
 TEST_CASE("At") {
   SUBCASE("Empty strings") {
     String s;
@@ -164,21 +157,21 @@ TEST_CASE("Capacity") {
     CHECK_EQ(s.capacity(), 0);
   }
   SUBCASE("Non-empty string") {
-    String s("123456789");
+    String s((char*)"123456789");
     CHECK_EQ(s.capacity(), 9);
   }
 }
 
 TEST_CASE("Compare") {
   SUBCASE("Character arrays") {
-    String s("abcd");
+    String s((char*)"abcd");
     CHECK(s.compare((char*)"abcd"));
     CHECK_FALSE(s.compare((char*)"1234"));
   }
   SUBCASE("Strings") {
-    String a("abcd");
-    String b("abcd");
-    String c("bcde");
+    String a((char*)"abcd");
+    String b((char*)"abcd");
+    String c((char*)"bcde");
     CHECK(a.compare(b));
     CHECK(b.compare(a));
     CHECK_FALSE(a.compare(c));
@@ -190,13 +183,13 @@ TEST_CASE("Concatenate") {
   SUBCASE("Character arrays") {
     SUBCASE("Empty Strings") {
       String s;
-      s.concatenate("abcd");
+      s.concatenate((char*)"abcd");
       CHECK_EQ(s.at(0), 'a');
       CHECK_EQ(s.at(3), 'd');
     }
     SUBCASE("Non-empty strings") {
-      String s("test");
-      s.concatenate("ing");
+      String s((char*)"test");
+      s.concatenate((char*)"ing");
       CHECK_EQ(s.at(0), 't');
       CHECK_EQ(s.at(6), 'g');
     }
@@ -204,14 +197,14 @@ TEST_CASE("Concatenate") {
   SUBCASE("Strings") {
     SUBCASE("Empty strings") {
       String a;
-      String b("testing");
+      String b((char*)"testing");
       a.concatenate(b);
       CHECK_EQ(a.at(0), 't');
       CHECK_EQ(a.at(3), 't');
     }
     SUBCASE("Non-empty strings") {
-      String a("test");
-      String b("ing");
+      String a((char*)"test");
+      String b((char*)"ing");
       a.concatenate(b);
       CHECK_EQ(a.at(0), 't');
       CHECK_EQ(a.at(6), 'g');
@@ -231,7 +224,7 @@ TEST_CASE("Empty") {
 }
 
 TEST_CASE("Erase") {
-  String s("Testing, 1, 2, 3. TTT");
+  String s((char*)"Testing, 1, 2, 3. TTT");
   s.erase('t');
   CHECK_EQ(s.at(3), 'i');
   s.erase('T');
@@ -242,20 +235,20 @@ TEST_CASE("Erase") {
 
 TEST_CASE("Find") {
   SUBCASE("Character arrays") {
-    String s("abcba");
-    CHECK_EQ(s.find("bc"), 1);
-    CHECK_EQ(s.find("ab"), 0);
-    CHECK_EQ(s.find("ab", 1), 5);
+    String s((char*)"abcba");
+    CHECK_EQ(s.find((char*)"bc"), 1);
+    CHECK_EQ(s.find((char*)"ab"), 0);
+    CHECK_EQ(s.find((char*)"ab", 1), 5);
   }
   SUBCASE("Character") {
-    String s("ababcbcb");
+    String s((char*)"ababcbcb");
     CHECK_EQ(s.find('a'), 0);
     CHECK_EQ(s.find('a', 1), 2);
     CHECK_EQ(s.find('c', 4), 4);
   }
   SUBCASE("String") {
-    String a("test");
-    String b("testing the tester");
+    String a((char*)"test");
+    String b((char*)"testing the tester");
     CHECK_EQ(b.find(a), 0);
     CHECK_EQ(b.find(a, 1), 12);
     CHECK_EQ(a.find(b), 4);
@@ -285,7 +278,7 @@ TEST_CASE("Prepend") {
 }
 
 TEST_CASE("Remove") {
-  String s("Testing: 1, 2, 3");
+  String s((char*)"Testing: 1, 2, 3");
   s.remove(0);
   CHECK_EQ(s.at(0), 'e');
   s.remove(1);
@@ -294,41 +287,41 @@ TEST_CASE("Remove") {
 }
 
 TEST_CASE("Reserve") {
-  String s("abc");
+  String s((char*)"abc");
   CHECK_EQ(s.capacity(), 3);
   s.reserve(10);
   CHECK_EQ(s.capacity(), 13);
 }
 
 TEST_CASE("Reverse") {
-  String s("abc");
+  String s((char*)"abc");
   s.reverse();
   CHECK_EQ(s.at(0), 'c');
 }
 
 TEST_CASE("Shift") {
-  String s("aaa");
+  String s((char*)"aaa");
   s.shift(2);
   CHECK_EQ(s.at(0), 'c');
 }
 
 TEST_CASE("Size") {
-  String s("12345");
+  String s((char*)"12345");
   CHECK_EQ(s.size(), 5);
 }
 
 TEST_CASE("Substr") {
-  String s("abcdef");
-  CHECK(s.substr(1, 3).compare(String("bc")));
+  String s((char*)"abcdef");
+  CHECK(s.substr(1, 3).compare(String((char*)"bc")));
 }
 
 TEST_CASE("To Int") {
   SUBCASE("Valid") {
-    String s("123");
+    String s((char*)"123");
     CHECK_EQ(s.toInt(), 123);
   }
   SUBCASE("Invalid") {
-    String s("123b");
+    String s((char*)"123b");
     CHECK_THROWS(s.toInt());
   }
 }
