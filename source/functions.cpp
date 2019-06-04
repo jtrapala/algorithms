@@ -3,32 +3,20 @@
 
 int abs_val(int x)
 {
-  if (x < 0)
-  {
-    return abs_val(x * -1);
-  }
+  if (x < 0) return abs_val(x * -1);
   return x;
 }
 
 int pow(int base, int num)
 {
-  if (num == 0)
-  {
-    return 1;
-  }
+  if (num == 0) return 1;
   return base * pow(base, num - 1);
 }
 
 int log(int base, int num)
 {
-  if (num == 1)
-  {
-    return 0;
-  }
-  else
-  {
-    return log(base, num / base) + 1;
-  }
+  if (num == 1) return 0;
+  else return log(base, num / base) + 1;
 }
 
 int chartoint(char c)
@@ -67,7 +55,6 @@ int max(int x, int y, int z)
 int min(int x, int y)
 {
   if (x <= y) return x; //Base case
-
   return min(y, x); //Check the other way around
 }
 
@@ -78,14 +65,8 @@ int min(int x, int y, int z)
 
 int round(double x, char c)
 {
-  if (x > 0)
-  {
-    return (c == 'd') ? (int)x : (int)x + 1;
-  }
-  else
-  {
-    return (c == 'd') ? (int)x - 1 : (int)x;
-  }
+  if (x > 0) return (c == 'd') ? (int)x : (int)x + 1;
+  else return (c == 'd') ? (int)x - 1 : (int)x;
 }
 
 int max(int arr[], int n)
@@ -161,8 +142,7 @@ int index(char str[], char substr[])
 
 bool is_sorted(int arr[], int n)
 {
-  if (n <= 2)
-    return true;
+  if (n <= 2) return true;
   else
   {
     int increasing = 1, decreasing = 1;
