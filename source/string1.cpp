@@ -18,8 +18,8 @@ String::String(){
 
     //Set initial length to zero
     len=0;
-	  //Set capacity
-	  cap=len;
+	//Set capacity
+	cap=len;
 }
 
 //Constructor with char array
