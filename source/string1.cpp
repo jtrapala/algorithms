@@ -18,8 +18,8 @@ String::String(){
 
     //Set initial length to zero
     len=0;
-	  //Set capacity
-	  cap=len;
+	//Set capacity
+	cap=len;
 }
 
 //Constructor with char array
@@ -120,19 +120,24 @@ void String::insert(char c, int index){
 }
 
 
-//void String::erase(char *end, char &c){
+void String::erase(char *end, char c){
 	//Contents of the address end is pointing to
 
 	//If contents == c, then erase them (how?)
 
-//	return;
-//}
+	return;
+}
 
 
 
 void String::erase(char c){
-	return;
-}
+	char *end;
+	end = &(array[len-1]);
+
+	//Check for end of iteration
+	if(end < &(array[0])) return;
+	else erase(end--, c);
+  }
 
 
 
