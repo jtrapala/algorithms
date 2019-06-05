@@ -22,7 +22,7 @@ void bubble_sort(int* arr, int n) {
  */
 
 void selection_sort(int *arr, int n){
-  int min;
+  int min=0;
 
   //Case for n ==0
   if(n==0 || n==1) return;
@@ -40,7 +40,7 @@ void selection_sort(int *arr, int n){
 
   else{
     
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n-1;i++){
     
       //Set the min value as i index
       min = i;
@@ -51,6 +51,7 @@ void selection_sort(int *arr, int n){
         if(arr[j] < arr[min]){
           min = j;
         }
+        
       }
       //Swap the elements at arr[i] and the current minimum
       arr[i] = arr[i] xor arr[min];
