@@ -23,7 +23,7 @@ void bubble_sort(int* arr, int n) {
 
 void selection_sort(int *arr, int n){
   int min=0;
-
+/*
   //Case for n ==0
   if(n==0 || n==1) return;
 
@@ -36,9 +36,9 @@ void selection_sort(int *arr, int n){
       arr[0] = arr[0] xor arr[1];
     }
     else return;
-  }
+  }*/
 
-  else{
+  //else{
     
     for(int i=0;i<n-1;i++){
     
@@ -59,7 +59,7 @@ void selection_sort(int *arr, int n){
       arr[i] = arr[i] xor arr[min];
 
     }
-  }
+  //}
   
 }
 
