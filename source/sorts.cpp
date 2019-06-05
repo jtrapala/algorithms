@@ -45,7 +45,7 @@ void selection_sort(int *arr, int n){
       //Set the min value as i index
       min = i;
       
-      for(int j=i+1;j<n;j++){
+      for(int j=(i+1);j<n;j++){
       
         //If arr[j] is less than min, set the new min as arr[j]
         if(arr[j] < arr[min]){
@@ -54,9 +54,9 @@ void selection_sort(int *arr, int n){
         
       }
       //Swap the elements at arr[i] and the current minimum
-      arr[i] = arr[i] xor arr[min];
-      arr[min] = arr[i] xor arr[min];
-      arr[i] = arr[i] xor arr[min];
+      int tmp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = tmp;
 
     }
   //}
