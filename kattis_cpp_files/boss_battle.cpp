@@ -7,12 +7,12 @@ int max(int n, int x){
 
 
 int main() {
+    //For input
     int n;
-    //for input
     cin >> n;
-
+    //For the bombs
     n -= 2;
     n = max(n, 1);
-
+    //For output
     cout << n << endl;
 }
