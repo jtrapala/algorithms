@@ -115,10 +115,11 @@ int partition(int *arr, int lo, int hi){
 }
 
 void quicksort(int *arr, int n){
-  
-  int lo = 0, hi=(n-1);
+	//Lo and Hi are based on the array's index
+	int lo = 0, hi=(n-1);
 
-  quicksort(arr, lo, hi);
+	//Call quicksort with new lo and hi
+	quicksort(arr, lo, hi);
 
   return;
 }
