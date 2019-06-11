@@ -85,9 +85,31 @@ void mergesort(int* arr, int n) {
 
 int partition(int *arr, int lo, int hi){
 
+	int i=lo+1, j=hi;
 
-	
-	return 0;
+	while(true){
+
+		/*i and j are converging along the array:
+
+			i-> hi, j <- lo
+
+		*/
+		while((arr[i] <= arr[lo]) && (i < hi)) {
+				i++;
+		}
+		while((arr[j] >= arr[lo]) && (j > lo)) {
+				 j--;	
+		}
+
+		if(j<=i) break;
+
+		swap(&arr[i], &arr[j]);	
+
+	}
+
+	swap(&arr[lo], &arr[j]);
+
+	return j;
 }
 
 void quicksort(int *arr, int n){
