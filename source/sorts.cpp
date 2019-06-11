@@ -101,8 +101,10 @@ int partition(int *arr, int lo, int hi){
 				 j--;	
 		}
 
+		//When converged, break the loop
 		if(j<=i) break;
 
+		//Switch the two spots in array 
 		swap(&arr[i], &arr[j]);	
 
 	}
