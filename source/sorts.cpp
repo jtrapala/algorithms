@@ -84,13 +84,29 @@ void mergesort(int* arr, int n) {
 }
 
 int partition(int *arr, int lo, int hi){
-  return 0;
+
+
+	
+	return 0;
 }
 
 void quicksort(int *arr, int n){
+  
+  int lo = 0, hi=(n-1);
+
+  quicksort(arr, lo, hi);
+
   return;
 }
 
 void quicksort(int *arr, int lo, int hi){
+
+  int part=0;
+
+  if(lo < hi){
+    part = partition(arr, lo, hi);
+    quicksort(arr, lo, (part-1));
+    quicksort(arr, (part+1), hi);
+  }
   return;
 }
