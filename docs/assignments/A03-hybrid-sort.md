@@ -19,11 +19,13 @@ This assignment will be hosted on Github Classroom.
    1. Open a terminal
    2. Navigate to your algorithms folder
    3. Go to the parent directory (`cd ..`)
-   4. Clone the repository to this location (`git clone --recurse-submodules https://github.com/uri-cs/HybridSort-<your username here>.git`)
+   4. Clone the repository to this location (`git clone <Link to your repository>`)
       1. Be sure to use the link for **your copy** of the repository
 3. Getting things in order
    1. Open your new folder in VS Code
-   2. Begin by creating a dummy definition for the Hybrid Sorting function, it's signature can be found in `sorts.hpp`
+   2. Begin by creating a signature and dummy definition for your Hybrid Sorting function.
+      1. Your signature should take an array as input, along with the number of elements, and return nothing.
+      2. Your dummy definition should just be a blank return statement.
    3. Check your work by compiling and running your code (`g++ -std=c++11 source/sorts.cpp && ./a.out`)
    4. Make sure the code compiled and ran, and that the unit tests for your function failed.
    5. Commit and push these changes (`git add . && git push`)
