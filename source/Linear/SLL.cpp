@@ -2,6 +2,7 @@
 
 LinkedList::LinkedList() {
   head = nullptr;
+  tail = nullptr;
   len = 0;
 }
 
@@ -17,7 +18,8 @@ void LinkedList::push_front(int d) {
   Node* n = new Node(d);
   if (!head) {
     head = n;
-  } else {
+  } 
+  else {
     n->next = head;
     head = n;
   }
@@ -55,6 +57,7 @@ void LinkedList::push_back(int d) {
       iter = iter->next;
 
     iter->next = n;
+    tail=iter;
   }
   ++len;
   return;
@@ -72,6 +75,7 @@ int LinkedList::pop_back() {
     int ret = temp->next->data;
     delete temp->next;
     temp->next = nullptr;
+    tail=temp;
     --len;
     return ret;
   }
@@ -168,6 +172,7 @@ void LinkedList::clear() {
     head = head->next;
     delete to_remove;
   }
+  tail=head;
   len = 0;
 }
 
@@ -178,7 +183,9 @@ void LinkedList::remove(int d) {
     pop_front();
   else {
     for (Node* iter = head; iter->next; iter = iter->next) {
+     
       if (iter->next->data == d) {
+         if(iter->next->next == tail->next) tail=iter;
         Node* to_remove = iter->next;
         iter->next = to_remove->next;
         delete to_remove;
@@ -192,6 +199,7 @@ void LinkedList::remove(int d) {
 void LinkedList::reverse() {
   if (len <= 1)
     return;
+  tail=head;
   Node* prev = nullptr;
   Node* curr = head;
   Node* next;

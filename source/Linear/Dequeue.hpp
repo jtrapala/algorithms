@@ -1,5 +1,5 @@
 #pragma once
-#include "SLL.cpp"
+#include "Linear/SLL.cpp"
 /** Dequeue Class
  * A Double ended queue class
  * Supports functionality of a Stack and Queue simultaneously
@@ -7,6 +7,7 @@
 class Dequeue {
  private:
  LinkedList list;
+ 
  public:
   Dequeue();
   ~Dequeue();
@@ -26,7 +27,9 @@ class Dequeue {
    * Returns the value of the first node in the dequeue
    * and removes that node from the dequeue (stack functionality)
    */
-  int popleft();
+  int popleft(){
+    list.pop_front();
+  }
 
   /** pushright(int data);
    * Adds a node to the end of the dequeue (queue functionality)
@@ -56,7 +59,7 @@ class Dequeue {
    *         false otherwise
    */
   bool empty(){
-    if(head && tail == nullptr)
+    //if(head && tail == nullptr)
   }
 
   /** clear();

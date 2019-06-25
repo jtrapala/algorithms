@@ -11,6 +11,7 @@ TEST_CASE("Constructor") {
 TEST_CASE("push") {
   Queue queue;
   queue.push(5);
+  queue.print();
   REQUIRE(queue.size() == 1);
   REQUIRE(queue.front() == 5);
   REQUIRE(queue.back() == 5);
