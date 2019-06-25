@@ -51,13 +51,15 @@ void LinkedList::push_back(int d) {
   Node* n = new Node(d);
   if (!head) {
     head = n;
-  } else {
+    tail=n;
+  } 
+  else {
     Node* iter = head;
     while (iter->next)
       iter = iter->next;
 
-    iter->next = n;
-    tail=iter;
+      iter->next = n;
+      tail=iter->next;
   }
   ++len;
   return;
@@ -75,7 +77,7 @@ int LinkedList::pop_back() {
     int ret = temp->next->data;
     delete temp->next;
     temp->next = nullptr;
-    tail=temp;
+    tail=temp->next;
     --len;
     return ret;
   }
