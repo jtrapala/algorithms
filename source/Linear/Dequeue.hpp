@@ -1,11 +1,12 @@
 #pragma once
-
+#include "SLL.cpp"
 /** Dequeue Class
  * A Double ended queue class
  * Supports functionality of a Stack and Queue simultaneously
  */
 class Dequeue {
  private:
+ LinkedList list;
  public:
   Dequeue();
   ~Dequeue();
@@ -54,7 +55,9 @@ class Dequeue {
    * Returns true if the dequeue is empty,
    *         false otherwise
    */
-  bool empty();
+  bool empty(){
+    if(head && tail == nullptr)
+  }
 
   /** clear();
    * Removes all nodes from the dequeue without destructing it
