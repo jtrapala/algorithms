@@ -13,9 +13,12 @@ TEST_CASE("push") {
   queue.push(5);
   queue.print();
   REQUIRE(queue.size() == 1);
+  
   REQUIRE(queue.front() == 5);
+
   REQUIRE(queue.back() == 5);
   queue.push(10);
+  queue.print();
   REQUIRE(queue.size() == 2);
   REQUIRE(queue.front() == 5);
   REQUIRE(queue.back() == 10);
@@ -26,6 +29,7 @@ TEST_CASE("front and back") {
   REQUIRE_THROWS(queue.front());
   REQUIRE_THROWS(queue.back());
   queue.push(10);
+
   queue.push(5);
   REQUIRE(queue.front() == 10);
   REQUIRE(queue.back() == 5);
@@ -36,6 +40,7 @@ TEST_CASE("pop") {
   REQUIRE_THROWS(queue.pop());
   for (int i = 0; i < 10; ++i)
     queue.push(i);
+    queue.print();
   for (int i = 0; i < 10; ++i)
     REQUIRE_EQ(queue.pop(), i);
   REQUIRE_EQ(queue.size(), 0);
