@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
-
+#include <iostream>
 //#include "Stack.hpp"
 #include "../Extra_c/stack.hpp"
 
@@ -12,9 +12,11 @@ TEST_CASE("Constructor") {
 TEST_CASE("push") {
   Stack stack;
   stack.push(5);
+  stack.prt();
   REQUIRE(stack.size() == 1);
   REQUIRE(stack.top() == 5);
   stack.push(10);
+  stack.prt();
   REQUIRE(stack.size() == 2);
   REQUIRE(stack.top() == 10);
 }
