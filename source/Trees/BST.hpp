@@ -53,6 +53,10 @@ class BST {
   /** height(Node* n)
    * Recursively determines the height of the subtree rooted at n.
    */
+  int max(int a, int b){
+    return(a>b)?a:b;
+  }
+
   int height(Node* n);
 
   /** clear(Node* n)
@@ -64,51 +68,65 @@ class BST {
    * Recursively prints the contents of the subtree rooted at n to the
    * ostream using a pre-order traversal.
    */
-  void preorder(Node* n, std::ostream& oss = std::cout);
+  void preorder(Node* n, std::ostream& oss);
 
   /** inorder()
    * Recursively prints the contents of the subtree rooted at n to the
    * ostream using an in-order traversal.
    */
-  void inorder(Node* n, std::ostream& oss = std::cout);
+  void inorder(Node* n, std::ostream& oss);
 
   /** postorder()
    * Recursively prints the contents of the subtree rooted at n to the
    * ostream using a post-order traversal.
    */
-  void postorder(Node* n, std::ostream& oss = std::cout);
+  void postorder(Node* n, std::ostream& oss);
 
  public:
-  BST();
-  ~BST();
+  BST(){ 
+    root=nullptr;
+  }
+  ~BST(){
+    return;
+  }
 
   /** insert(int data)
    * Inserts the given data into the tree.
    * Does nothing if the data is already in the tree.
    */
-  void insert(int data);
+  void insert(int data){
+    insert(data, root);
+  }
 
   /** is_empty()
    * Returns true if the tree is empty and false otherwise
    */
-  bool is_empty();
+  bool is_empty(){
+    return (root == nullptr)? true:false;
+  }
 
   /** search(int data)
    * Searches the tree for the given data, returning true if the data
    * is found and false otherwise.
    */
-  bool search(int data);
+  bool search(int data){
+    return search(data, root);
+  }
 
   /** remove(int data)
    * Removes the given data from the tree, provided it exists.
    */
-  void remove(int data);
+  void remove(int data){
+    return;
+  }
 
   /** height()
    * Determines and returns the height of the tree.
    * Returns -1 if the tree is empty.
    */
-  int height();
+  int height(){
+    return height(root);
+  }
 
   /** clear()
    * Removes every element from the tree.
