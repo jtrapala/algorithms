@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
-
-#include "Dequeue.hpp"
+#include "../Extra_c/dq.hpp"
+//#include "Dequeue.hpp"
 
 TEST_CASE("Constructor") {
   Dequeue test;

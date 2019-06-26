@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
-
-#include "Queue.hpp"
+#include "../Extra_c/q.hpp"
+//#include "Queue.hpp"
 
 TEST_CASE("Constructor") {
   Queue queue;
