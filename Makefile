@@ -1,6 +1,6 @@
 CXX=g++-8
 FLAGS=-std=c++11 -Wall -Wextra
-TARGETS=functions functions_recursive sorts String SLL CSLL DLL CDLL Stack Queue Dequeue
+TARGETS=functions functions_recursive sorts String SLL CSLL DLL CDLL Stack Queue Dequeue BST
 
 %: source/Functions/functions.test.cpp source/Functions/%.cpp
 	$(CXX) $(FLAGS) $^ && ./a.out
