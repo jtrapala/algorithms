@@ -22,6 +22,7 @@ Queue: source/Linear/Queue.test.cpp source/Linear/Queue.cpp source/Linear/DLL.cp
 
 Dequeue: source/Linear/Dequeue.test.cpp source/Linear/Dequeue.cpp source/Linear/DLL.cpp
 	$(CXX) $(FLAGS) $^ && ./a.out
+	
 e_s:source/Linear/Stack.test.cpp source/Extra_c/stack.hpp source/Linear/DLL.cpp
 	$(CXX) $(FLAGS) $^ && ./a.out
 
