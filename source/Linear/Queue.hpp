@@ -1,13 +1,15 @@
 #pragma once
+
 #include "LinkedList.hpp"
+
 /** Queue
  * A container class that stores data using a FIFO
  * (first in, first out) scheme.
  */
 class Queue {
  private:
-  LinkedList *list;
- 
+  LinkedList* list;
+
  public:
   Queue(){
     list = new LinkedList();
