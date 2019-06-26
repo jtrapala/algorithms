@@ -1,7 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
 
-#include "Stack.hpp"
+//#include "Stack.hpp"
+#include "../Extra_c/stack.hpp"
 
 TEST_CASE("Constructor") {
   Stack stack;
