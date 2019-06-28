@@ -48,7 +48,8 @@ class BST {
    *   the pointer to the child if n has only one child.
    *   the pointer to the right child (successor) if n has two children.
    */
-  Node* remove(int data, Node* n);
+  Node* find(int data, Node* n);
+  Node* remove(int data, Node *n);
 
   /** height(Node* n)
    * Recursively determines the height of the subtree rooted at n.
