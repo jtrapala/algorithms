@@ -48,6 +48,7 @@ class BST {
    *   the pointer to the child if n has only one child.
    *   the pointer to the right child (successor) if n has two children.
    */
+  Node* find(int data, Node* n);
   Node* remove(int data, Node* n);
 
   /** height(Node* n)
@@ -68,7 +69,7 @@ class BST {
    * Recursively prints the contents of the subtree rooted at n to the
    * ostream using a pre-order traversal.
    */
-  void preorder(Node* n, std::ostream& oss);
+  void preorder(Node *n, std::ostream& oss);
 
   /** inorder()
    * Recursively prints the contents of the subtree rooted at n to the
@@ -116,9 +117,7 @@ class BST {
   /** remove(int data)
    * Removes the given data from the tree, provided it exists.
    */
-  void remove(int data){
-    return;
-  }
+  void remove(int data);
 
   /** height()
    * Determines and returns the height of the tree.

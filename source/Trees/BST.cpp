@@ -27,9 +27,59 @@ bool BST::search(int data, Node* n){
 
   }
 
+ Node* BST::find(int data, Node* n){
+	if(n->data > data){
+		find(data, n->left);
+	} 
+	else if(n->data > data){
+		find(data, n->right);
+	}
+	else if(n->data == data) return n;
+ }
+
+
  Node* BST::remove(int data, Node* n){
-     return n;
-  }
+	 
+	 if(!n) return nullptr;
+	 else if(data < n->data) n->left=remove(data, n->left);
+	 else if(data > n->data )n->right=remove(data, n->right);
+	 else if(!n->left && !n->right)
+
+
+
+	/* if(!search(data)) throw "Not found";
+	else{
+
+		if(n->left == nullptr && n->right==nullptr) delete(n);
+		else if(n->left == nullptr){
+			n=n->right;
+			delete(n);
+		}
+		else if(n->right == nullptr){
+			n=n->right;
+			delete(n);
+		}
+		else{
+			Node *tmp = n;
+
+			n=n->right;
+
+			while(n->left){
+				n=n->left;
+			}
+
+			n=tmp;
+
+			delete(n);
+			
+		}
+ }*/
+ }
+
+ void BST::remove(int data){
+	remove(data, root);
+ }
+
 
 
 int BST::height(Node* n){
@@ -37,11 +87,18 @@ int BST::height(Node* n){
   }
 
 void BST::clear(Node* n){
-return;
+	if(n==nullptr) return;
+	clear(n->left);
+	clear(n->right);	
+	delete n;	
   }
  
-void BST::preorder(Node* n, std::ostream& oss){
-return;
+void BST::preorder(Node *n, std::ostream& oss){
+	 if(n==nullptr) return;
+    oss << n->data << ", ";
+	preorder(n->left, oss);
+	preorder(n->right, oss);
+    
 }
 
   /** inorder()
@@ -49,20 +106,32 @@ return;
    * ostream using an in-order traversal.
    */
 void BST::clear(){
-    
+    clear(root);
+	root=nullptr;
 }
 
 void BST::inorder(Node* n, std::ostream& oss){
-    return;
+    if(n==nullptr) return;
+    
+	inorder(n->left, oss);
+	oss << n->data << ", ";
+	inorder(n->right, oss);
+	
 }
 void BST::preorder(std::ostream& oss){
-
+	preorder(root, oss);
+	//Last
+	oss << std::endl;
 }
 void BST::inorder(std::ostream& oss){
-    
+    inorder(root, oss);
+	//Last
+	oss << std::endl;
 }
 void BST::postorder(std::ostream& oss){
-    
+    postorder(root, oss);
+	//Last
+	oss << std::endl;
 }
 
   /** postorder()
@@ -70,6 +139,11 @@ void BST::postorder(std::ostream& oss){
    * ostream using a post-order traversal.
    */
  void BST::postorder(Node* n, std::ostream& oss){
-return;
+	if(n==nullptr) return;
+    
+	postorder(n->left, oss);
+	postorder(n->right, oss);
+	oss << n->data << ", ";
+    
 }
 

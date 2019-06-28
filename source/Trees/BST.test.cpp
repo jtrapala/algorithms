@@ -68,12 +68,15 @@ TEST_CASE("remove") {
     tree.insert(nums[i]);
   }
   tree.remove(1);
+  tree.preorder();
   REQUIRE_FALSE(tree.search(1));
   REQUIRE(tree.search(2));
   tree.remove(5);
+  tree.preorder();
   REQUIRE_FALSE(tree.search(5));
   REQUIRE(tree.search(7));
   tree.remove(4);
+  tree.preorder();
   REQUIRE_FALSE(tree.search(4));
   REQUIRE(tree.search(8));
   REQUIRE(tree.search(2));
@@ -88,8 +91,10 @@ TEST_CASE("clear") {
   for (int i = 0; i < 8; ++i) {
     tree.insert(nums[i]);
   }
+  //tree.postorder();
   CHECK_FALSE(tree.is_empty());
   tree.clear();
+  //tree.postorder();
   REQUIRE(tree.is_empty());
 }
 
