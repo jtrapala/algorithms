@@ -1,46 +1,59 @@
 #pragma once
-
-#include "LinkedList.hpp"
-
+#include "SLL.cpp"
 /** Stack
  * A container class that stores data using a LIFO
  * (last in, first out) scheme.
  */
 class Stack {
  private:
-  LinkedList* list;
+ LinkedList list;
+ unsigned int len;
 
  public:
-  Stack();
-  ~Stack();
+  Stack(){
+  }
+  ~Stack(){
+  }
 
   /** size()
    * Returns the size of the stack.
    */
-  unsigned int size();
+  unsigned int size(){
+    return list.LinkedList::length();
+  }
 
   /** push(int data)
    * Pushes a node containing the given data to the top of the stack.
    */
-  void push(int data);
+  void push(int data){
+    return list.LinkedList::push_front(data);
+  }
 
   /** pop()
    * Removes and returns the data at the top of the stack.
    */
-  int pop();
+  int pop(){
+    return list.LinkedList::pop_front();
+  }
 
   /** top()
    * Returns the data at the top of the stack without changing the stack.
    */
-  int top();
+  int top(){
+    return list.LinkedList::at(0);
+  }
 
   /** empty()
    * Returns whether or not the stack is empty.
    */
-  bool empty();
+  bool empty(){
+    return (list.LinkedList::length() == 0)?true:false;
+  }
 
   /** clear()
    * Clears the entire stack.
    */
-  void clear();
+  void clear(){
+    list.LinkedList::clear();
+  }
 };
