@@ -1,4 +1,4 @@
-CXX=g++-8
+CXX=g++
 FLAGS=-std=c++11 -Wall -Wextra
 TARGETS=functions sorts String SLL CSLL DLL CDLL Stack Queue Dequeue BST
 
