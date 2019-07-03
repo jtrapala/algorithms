@@ -24,7 +24,9 @@ void MinHeap::swim(){
    * array). It then swaps the element at the root down the tree until both
    * children are greater than it.
    */
-  void MinHeap::sink(int i){}
+  void MinHeap::sink(int i){
+
+  }
 
   /** search(int i, int data)
    * Recursively searches for data in the MinHeap's subtree rooted at i,
@@ -64,11 +66,8 @@ void MinHeap::swim(){
       }
       else{
           array[size + 1] = data;
-          this->print();
           size++;
           swim();
-          this->print();
-          
       }
 
   }
@@ -86,6 +85,10 @@ void MinHeap::swim(){
    * Throws an error if the heap is empty.
    */
   int MinHeap::pop(){
+
+      if(size == 0) throw "Empty";
+
+
       return 0;
   }
 
@@ -111,6 +114,10 @@ void MinHeap::swim(){
    * Throws an error if the heap is empty or the index is out of bounds.
    */
   int MinHeap::remove(int i){
+      if(size == 0 || i > capacity) throw "Empty";
+      int min=this->peek();
+
+
       return 0;
   }
 
