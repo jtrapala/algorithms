@@ -43,6 +43,8 @@ TEST_CASE("pop") {
     REQUIRE_EQ(heap.peek(), i + 1);
   }
   min = heap.pop();
+  heap.print();
+  std::cout<<heap.count()<<std::endl;
   REQUIRE_EQ(min, 9);
   REQUIRE_FALSE(heap.count());
 }

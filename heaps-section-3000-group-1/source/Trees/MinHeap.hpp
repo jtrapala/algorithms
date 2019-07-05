@@ -96,4 +96,6 @@ class MinHeap {
    * top-to-bottom.
    */
   void print(std::ostream& oss = std::cout);
+
+  void swap(int *, int*);
 };
