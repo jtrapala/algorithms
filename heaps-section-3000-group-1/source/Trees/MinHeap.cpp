@@ -34,7 +34,10 @@ void MinHeap::swim(){
    * equal to size or data is less than the MinHeap's value at i.
    */
   bool MinHeap::search(int i, int data){
-      return true;
+      if(array[i] == data) return true;
+      else if(data < array[i]) return false;
+      else if( i <= size) return (search(2*i, data) ^ search(2*i+1, data));
+      else return false;
   }
 
   /** erase(int i, int data)
@@ -105,7 +108,10 @@ void MinHeap::swim(){
    * found and false otherwise.
    */
   bool MinHeap::search(int data){
-      return true;
+      if(size == 0 ) return false;
+      else if( size == 1 ) return (data == array[1])?true:false;
+      else return search(1, data);
+    
   }
 
   /** remove(int i)
