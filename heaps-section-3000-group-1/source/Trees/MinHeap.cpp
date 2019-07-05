@@ -38,7 +38,7 @@ void MinHeap::swim(){
 	if(left <= size && array[left] < array[i]) min=left;
 	if(right <=size && array[right] < array[min]) min=right;
 	if(min != i){
-		swap(&array[i], &array[min]);
+		array[i]=array[min];
 		sink(min);
 	  }
 
@@ -53,7 +53,7 @@ void MinHeap::swim(){
       if(array[i] == data) return true;
       else if(data < array[i]) return false;
       else if( i <= size) return (search(2*i, data) ^ search(2*i+1, data));
-      else return false;
+      return false;
   }
 
   /** erase(int i, int data)
@@ -62,16 +62,16 @@ void MinHeap::swim(){
    * Does nothing if data is not found in the subtree.
    */
   void MinHeap::erase(int i, int data){
-	if(search(i, data) == false) return;
+	if(search(data) == false) return;
 	else{
     if(array[i] == data) {
 		if(size == 1 ){
 			delete[] array;
-        	size=0;	
+        	size--;	
 			return;
 		}
 		int old_root=array[i];
-        swap(&array[i], &array[size]);
+        array[i]=array[size];
         size--;
         sink(i);
 		return;
@@ -134,15 +134,15 @@ void MinHeap::swim(){
         size=0;
         delete[] array;
     }
-    else{
+    
         int old_root=peek();
-        swap(&array[1],&array[size]);
+        array[1]=array[size];
         size--;
         sink(1);
 
 
         return old_root;
-	}
+	
 
      
   }
@@ -160,7 +160,7 @@ void MinHeap::swim(){
    * found and false otherwise.
    */
   bool MinHeap::search(int data){
-      if(size == 0 ) return false;
+      if(size < 1 ) return false;
       else if( size == 1 ) return (data == array[1])?true:false;
       else return search(1, data);
     
@@ -186,14 +186,16 @@ void MinHeap::swim(){
    */
   void MinHeap::erase(int data){
        if(search(1, data) == false) return;
+	   else{
        if( size == 1 ){
 		   if(peek() == data){
-			   size--;
+			   size=0;
 			   delete[] array;
 		   }
 		   else return;
 		}
-       return erase(1, data);
+       else return erase(1, data);
+	   }
   }
 
   /** print()
