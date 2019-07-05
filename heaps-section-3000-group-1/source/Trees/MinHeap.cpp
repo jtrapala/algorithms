@@ -6,6 +6,12 @@
    * the bottom level of the tree), and swaps it up the tree until it's greater
    * than its parent.
    */
+
+void MinHeap::swap(int *a, int *b){
+	int tmp=*a;
+	*a=*b;
+	*b=tmp;
+}
  
 void MinHeap::swim(){
     int temp = size;
@@ -25,6 +31,16 @@ void MinHeap::swim(){
    * children are greater than it.
    */
   void MinHeap::sink(int i){
+	  int left=2*i, right=2*i+1, min=i;
+
+
+	if(left > size) return;
+	if(left <= size && array[left] < array[i]) min=left;
+	if(right <=size && array[right] < array[min]) min=right;
+	if(min != i){
+		swap(&array[i], &array[min]);
+		sink(min);
+	  }
 
   }
 
@@ -45,7 +61,29 @@ void MinHeap::swim(){
    * calling remove on i if data is found in the tree.
    * Does nothing if data is not found in the subtree.
    */
-  void MinHeap::erase(int i, int data){}
+  void MinHeap::erase(int i, int data){
+	if(search(i, data) == false) return;
+	else{
+    if(array[i] == data) {
+		if(size == 1 ){
+			delete[] array;
+        	size=0;	
+			return;
+		}
+		int old_root=array[i];
+        swap(&array[i], &array[size]);
+        size--;
+        sink(i);
+		return;
+	 }
+    if(data < array[i]) return;
+    if( i <= size){
+		erase(2*i, data);
+		erase(2*i+1, data);
+		return;
+	  }
+	}
+  }
 
 
   MinHeap::MinHeap(unsigned int cap){
@@ -79,7 +117,8 @@ void MinHeap::swim(){
    * Returns the number of elements in the MinHeap.
    */
   int MinHeap::count(){
-      return size;
+	  if(size > 0) return size;
+	  else return 0;
   }
 
   /** pop()
@@ -89,10 +128,23 @@ void MinHeap::swim(){
    */
   int MinHeap::pop(){
 
-      if(size == 0) throw "Empty";
+    if(size < 1) throw "Empty";
+    if(size == 1) {
+        return array[1];
+        size=0;
+        delete[] array;
+    }
+    else{
+        int old_root=peek();
+        swap(&array[1],&array[size]);
+        size--;
+        sink(1);
 
 
-      return 0;
+        return old_root;
+	}
+
+     
   }
 
   /** peek()
@@ -120,11 +172,11 @@ void MinHeap::swim(){
    * Throws an error if the heap is empty or the index is out of bounds.
    */
   int MinHeap::remove(int i){
-      if(size == 0 || i > capacity) throw "Empty";
-      int min=this->peek();
+      if(size < 1 || i > size || i < 1) throw "Empty";
 
-
-      return 0;
+      int min=array[i];
+		erase(min);
+	return min;
   }
 
   /** erase(int data)
@@ -132,7 +184,17 @@ void MinHeap::swim(){
    * preserving the heap order property.
    * Does nothing if data is not found.
    */
-  void MinHeap::erase(int data){}
+  void MinHeap::erase(int data){
+       if(search(1, data) == false) return;
+       if( size == 1 ){
+		   if(peek() == data){
+			   size--;
+			   delete[] array;
+		   }
+		   else return;
+		}
+       return erase(1, data);
+  }
 
   /** print()
    * Prints the contents of the MinHeap tree to the ostream from left-to-right,
