@@ -16,9 +16,7 @@ void MinHeap::swap(int *a, int *b){
 void MinHeap::swim(){
     int temp = size;
     while(array[temp] < array [temp/2]){
-        int swap = array[temp];
-        array[temp] = array[temp/2];
-        array[temp/2] = swap;
+        swap(&array[temp], &array[temp/2]);
         temp /=2;
     }
 }
@@ -131,12 +129,15 @@ void MinHeap::swim(){
     if(size < 1) throw "Empty";
     if(size == 1) {
         return array[1];
-        size=0;
-        delete[] array;
+        size--;
     }
-    
-        int old_root=peek();
-        array[1]=array[size];
+    else if(size == 2) {
+		return array[1];
+		array[1]=array[2];
+		size--;	
+	}
+        int old_root=array[1];
+        swap(&array[1],&array[size]);
         size--;
         sink(1);
 
