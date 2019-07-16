@@ -6,15 +6,20 @@
 
 
 int HashTable::hash(const String& key){
-
+    int hash=0;
+    for(int i=0;i<(key.size());i++){
+        hash=int(key.at(i))+hash;
+    }
+    return hash%size;
 }
 
 
 HashTable::HashTable(){
-
+    size=0;
+    table=nullptr;
 }
 HashTable::~HashTable(){
-    
+
 }
 
         
