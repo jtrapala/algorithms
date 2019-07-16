@@ -41,7 +41,7 @@ unsigned int HashTable::Size(){
          */
 void HashTable::insert(const String& key, int data){
     int h= hash(key);
-    table
+    //table=0;
 }
 
 
