@@ -18,6 +18,14 @@ HashTable::HashTable(){
     size=0;
     table=nullptr;
 }
+HashTable::HashTable(int indices){
+    List *arr = new List;
+    
+    
+    for(int i=0;i<indices;i++){
+        table[i] = arr[i];
+    }
+}
 HashTable::~HashTable(){
 
 }
@@ -27,7 +35,7 @@ HashTable::~HashTable(){
          * Returns the value of the data member size, the number of indices in the table
          */
 unsigned int HashTable::Size(){
-
+    if
 }
 
 
