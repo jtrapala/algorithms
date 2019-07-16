@@ -19,7 +19,7 @@ class HashTable {
         HashTable();
         ~HashTable();
         
-        HashTable(int indices);
+        HashTable(int indices);//Indices = M
         
         /** Size()
          * Returns the value of the data member size, the number of indices in the table
