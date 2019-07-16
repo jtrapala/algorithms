@@ -16,18 +16,15 @@ int HashTable::hash(const String& key){
 
 HashTable::HashTable(){
     size=0;
-    table=nullptr;
+    table=new List[size];
 }
 HashTable::HashTable(int indices){
-    List *arr = new List;
-    
-    
-    for(int i=0;i<indices;i++){
-        table[i] = arr[i];
-    }
+    size=indices;
+    table = new List[indices];
 }
 HashTable::~HashTable(){
-
+    delete(table);
+    size = 0;
 }
 
         
@@ -35,7 +32,7 @@ HashTable::~HashTable(){
          * Returns the value of the data member size, the number of indices in the table
          */
 unsigned int HashTable::Size(){
-    if
+    return size;
 }
 
 
@@ -43,7 +40,8 @@ unsigned int HashTable::Size(){
          * Insert the value of data into the chain at index hash(key) 
          */
 void HashTable::insert(const String& key, int data){
-
+    int h= hash(key);
+    table
 }
 
 
