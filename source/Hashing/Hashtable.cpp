@@ -1,85 +1,79 @@
 #include "Hashtable.hpp"
-#include "Linkedlist.hpp"
-#include "../Stack/Stack.hpp"
-#include "../String/String.hpp"
-//#include <string>
-
+#include "SLL.cpp"
 
 int HashTable::hash(const String& key){
-    int hash=0;
-    for(int i=0;i<(key.size());i++){
-        hash=int(key.at(i))+hash;
+    int hash = 0;
+    for(int i = 0; i < key.size(); ++i){
+        hash = key.at(i) + hash;
     }
-    return hash%size;
+    return hash % size;
 }
-
 
 HashTable::HashTable(){
-    size=0;
-    table=new List[size];
+    size = 5;
+    table = new List[5];
 }
-HashTable::HashTable(int indices){
-    size=indices;
-    table = new List[indices];
-}
+
 HashTable::~HashTable(){
-    delete(table);
+    delete [] table;
     size = 0;
 }
 
-        
-        /** Size()
-         * Returns the value of the data member size, the number of indices in the table
-         */
+HashTable::HashTable(int indices){
+    size = indices;
+    table = new List[indices];
+    for(int i = 0; i < indices; ++i){
+        table[i] = List();
+    }
+}
+
 unsigned int HashTable::Size(){
     return size;
 }
 
-
-        /** insert(String key, int data)
-         * Insert the value of data into the chain at index hash(key) 
-         */
 void HashTable::insert(const String& key, int data){
-    int h= hash(key);
-    
+    int h = hash(key);
+    table[h].push_back(key, data);
+    // for(int i = 0; i < size; ++i){
+    //     if(table[i].length() / size >= 8){
+    //         double the size
+    //     }else if(table[i].length() / size <= 2){
+    //         halve the size
+    //     }
+    // }
 }
 
-
-        /** remove(String key)
-         * Removes the first instance of the given key from the chain located at hash(key) 
-         */
 void HashTable::remove(String& key){
-
+    int to_remove = hash(key);
+    table[to_remove].remove(key);
 }
 
-
-        /** search(String key)
-         * Returns true if it found an instance of the key at index hash(key) false otherwise
-         */
 bool HashTable::search(String& key){
-
+    int h = hash(key);
+    if(table[h].index(key) != -1){
+        return true;
+    }else{
+        return false;
+    }
 }
 
-
-        /** get(String key)
-         * Returns the integer value associated with the given key from the key/value pair
-         */
 int HashTable::get(String& key){
-
+    int h = hash(key);
+    int idx = table[h].index(key);
+    return table[h].at(idx);
 }
 
-
-        /** is_empty()
-         * Returns true if all chains are of length 0 indicating them being empty, returns false otherwise
-         */
 bool HashTable::is_empty(){
-
+    for(int i = 0; i < size; ++i){
+        if(table[i].length() != 0){
+            return false;
+        }
+    }
+    return true;
 }
 
-
-        /** print()
-         * Calls the Linked List print() method on each of its chains
-         */
 void HashTable::print(){
-
+    for(int i = 0; i < size; ++i){
+        table[i].print();
+    }
 }

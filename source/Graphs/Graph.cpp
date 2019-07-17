@@ -20,7 +20,7 @@
    * Returns the number of nodes in the graph.
    */
   unsigned int Graph::node_count(){
-      
+
   }
 
   /** edge_count()
@@ -67,7 +67,7 @@
    * Self-connected nodes are not permitted, so an error is thrown when v == w.
    * Will throw an error if weight == 0. Use remove_edge instead.
    */
-  void Graph::add_edge(unsigned int v, unsigned int w, int weight = 1){
+  void Graph::add_edge(unsigned int v, unsigned int w, int weight){
 
   }
 
@@ -84,5 +84,7 @@
    * A node w is defined to be a neighbor of v iff there exists an edge
    * from v to w.
    */
-  std::vector<int> neighbors(unsigned int v);
+  std::vector<int> neighbors(unsigned int v){
+
+  }
 };
