@@ -20,7 +20,7 @@ HashTable::HashTable(){
 }
 HashTable::HashTable(int indices){
     size=indices;
-    table = new List[indices];
+    table = List();
 }
 HashTable::~HashTable(){
     delete(table);
