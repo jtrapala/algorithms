@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
-
+#include "../Hashing/LinkedList.hpp"
+#include <iostream>
 /** Graph
  * A class which represents a general (di)graph with weighted edges and node
  * values. Uses an adjacency matrix to store edge connections/weights.
@@ -9,6 +10,8 @@
  */
 class Graph {
  private:
+  std::vector<int> table;
+  unsigned int sz;
  public:
   /** Constructor
    * Creates a graph with n vertices but no edges.
@@ -74,4 +77,5 @@ class Graph {
    * from v to w.
    */
   std::vector<int> neighbors(unsigned int v);
+  
 };

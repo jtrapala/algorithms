@@ -1,11 +1,12 @@
 #include "Graph.hpp"
-
 #include <vector>
   /** Constructor
    * Creates a graph with n vertices but no edges.
    * Each vertex is initialized with a value of 0.
    */
   Graph::Graph(unsigned int n){
+    sz = n;
+    table = new std::vector<int>;
 
   }
 
@@ -13,14 +14,15 @@
    * Clear the memory used by the adjacency matrix and node value array.
    */
   Graph::~Graph(){
-
+	delete(table);
+	sz = 0;
   }
 
   /** node_count()
    * Returns the number of nodes in the graph.
    */
   unsigned int Graph::node_count(){
-
+	  return 0;
   }
 
   /** edge_count()
@@ -28,21 +30,21 @@
    * Two nodes connected to one another counts as two edges.
    */
   unsigned int Graph::edge_count(){
-
+	  return 0;
   }
 
   /** get_value(unsigned int v)
    * Returns the value associated with node v.
    */
   int Graph::get_value(unsigned int v){
-
+	  return table[v].at(0);
   }
 
   /** set_value(unsigned int v, int val)
    * Sets the value of node v to val.
    */
   void Graph::set_value(unsigned int v, int val){
-
+	  
   }
 
   /** weight(unsigned int v, unsigned int w)
@@ -50,7 +52,7 @@
    * Returns 0 if the edge does not exist.
    */
   int Graph::weight(unsigned int v, unsigned int w){
-
+	  return table[v].at(w);
   }
 
   /** has_edge(unsigned int v, unsigned int w)
@@ -58,7 +60,7 @@
    * Note that has_edge(v, w) does not imply has_edge(w, v).
    */
   bool Graph::has_edge(unsigned int v, unsigned int w){
-
+	  return false;
   }
 
   /** add_edge(unsigned int v, unsigned int w, int weight)
@@ -85,6 +87,6 @@
    * from v to w.
    */
   std::vector<int> neighbors(unsigned int v){
-
+	  std::vector<int> vec;
+	  return vec;
   }
-};
