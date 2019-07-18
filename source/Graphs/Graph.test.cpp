@@ -19,6 +19,7 @@ TEST_CASE("Constructor") {
   }
   REQUIRE_FALSE(sum);
   CHECK_THROWS(Graph G(0));
+
 }
 
 TEST_CASE("add_edge") {
@@ -40,6 +41,7 @@ TEST_CASE("add_edge") {
   REQUIRE_THROWS(G.add_edge(1, 10, 80));
   REQUIRE_THROWS(G.add_edge(0, 1, 0));
   REQUIRE_THROWS(G.add_edge(4, 4, 8));
+  
 }
 
 TEST_CASE("remove_edge") {
@@ -60,6 +62,7 @@ TEST_CASE("remove_edge") {
   REQUIRE_THROWS(G.remove_edge(0, 2));
   REQUIRE_THROWS(G.remove_edge(1, 0));
   REQUIRE_THROWS(G.remove_edge(0, 0));
+  
 }
 
 TEST_CASE("neighbors") {
@@ -89,6 +92,7 @@ TEST_CASE("neighbors") {
   }
 
   REQUIRE_THROWS(G.neighbors(6));
+  
 }
 
 TEST_CASE("Extra out-of-bounds checks") {
@@ -99,4 +103,5 @@ TEST_CASE("Extra out-of-bounds checks") {
   REQUIRE_THROWS(G.weight(2, 0));
   REQUIRE_THROWS(G.has_edge(0, 2));
   REQUIRE_THROWS(G.has_edge(2, 0));
+  
 }
