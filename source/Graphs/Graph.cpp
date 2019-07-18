@@ -6,7 +6,9 @@
    */
   Graph::Graph(unsigned int n){
     sz = n;
-    table = new std::vector<int>;
+	for(int i  = 0; i < n; ++i){
+		table[i] = new std::vector<int>;
+	}
 
   }
 
