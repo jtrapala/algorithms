@@ -1,4 +1,5 @@
-
+#pragma once
+#include <iostream>
 
 /** solve_maze(int** maze, int n)
  * Decides whether the maze is solvable from position (0, 0) by making a call
