@@ -5,9 +5,11 @@
    * Each vertex is initialized with a value of 0.
    */
   Graph::Graph(unsigned int n){
-    sz = n;
-	for(int i  = 0; i < n; ++i){
-		table[i] = new std::vector<int>;
+    vert = n;
+	edg = 0;
+	for(int i = 0;i<n;++i){
+		std::vector<int> nw(n,0); //sub-vector created,called nw, filled with zeroes
+		table.push_back(nw); //sub-vector put in "table", vector of vectors
 	}
 
   }
@@ -16,15 +18,15 @@
    * Clear the memory used by the adjacency matrix and node value array.
    */
   Graph::~Graph(){
-	delete(table);
-	sz = 0;
+	;
+	vert = 0;
   }
 
   /** node_count()
    * Returns the number of nodes in the graph.
    */
   unsigned int Graph::node_count(){
-	  return 0;
+	  return vert;
   }
 
   /** edge_count()
@@ -32,7 +34,7 @@
    * Two nodes connected to one another counts as two edges.
    */
   unsigned int Graph::edge_count(){
-	  return 0;
+	  return edg;
   }
 
   /** get_value(unsigned int v)
@@ -72,7 +74,7 @@
    * Will throw an error if weight == 0. Use remove_edge instead.
    */
   void Graph::add_edge(unsigned int v, unsigned int w, int weight){
-
+	  edg++;
   }
 
   /** remove_edge(unsigned int v, unsigned int w)
@@ -80,7 +82,7 @@
    * Will throw an error if the edge does not exist.
    */
   void Graph::remove_edge(unsigned int v, unsigned int w){
-
+	  edg--;
   }
 
   /** neighbors(unsigned int v)

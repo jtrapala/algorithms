@@ -10,8 +10,8 @@
  */
 class Graph {
  private:
-  std::vector<int> table;
-  unsigned int sz;
+  std::vector<std::vector<int>> table;
+  unsigned int vert, edg;
  public:
   /** Constructor
    * Creates a graph with n vertices but no edges.
