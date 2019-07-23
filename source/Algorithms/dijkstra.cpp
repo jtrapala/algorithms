@@ -18,6 +18,17 @@ Graph djikstras(Graph& G, int vertex){
         std::vector<int> neigh;
         neigh = G.neighbors(vertex); //Start at 0
 
+        for(int j=0;j<neigh.size();++j){
+            if(cst[vertex] + G.weight(vertex,neigh.at(j)) < cst[neigh.at(j)]){
+                cst[neigh.at(j)] = cst[vertex] + G.weight(vertex, neigh.at(j));
+                pth[neigh.at(j)] = vertex;
+            }
+            
+        }
+
+
+
+
         vertex = min(cst, G.node_count());
     }
     
