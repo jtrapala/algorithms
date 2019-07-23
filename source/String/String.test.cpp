@@ -183,7 +183,10 @@ TEST_CASE("Reverse") {
   s.reverse();
   CHECK_EQ(s.at(0), 'c');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
   String w((char*)"acde");
   w.reverse();
   CHECK_EQ(w.at(2), 'c');
