@@ -44,8 +44,8 @@ void Graph::set_value(unsigned int v, int val) {
 
 bool Graph::has_edge(unsigned int v, unsigned int w) {
   if (v >= num_nodes || w >= num_nodes)
-    throw "Vertex out of bounds";
-  return matrix[v][w];
+    throw "HE: Vertex out of bounds";
+  return (matrix[v][w]<=0)?false:true;
 }
 
 int Graph::weight(unsigned int v, unsigned int w) {
@@ -56,9 +56,9 @@ int Graph::weight(unsigned int v, unsigned int w) {
 
 void Graph::add_edge(unsigned int v, unsigned int w, int weight) {
   if (v >= num_nodes || w >= num_nodes)
-    throw "Vertex out of bounds";
+    throw "AE: Vertex out of bounds";
   if (!weight)
-    throw "Weight cannot be zero";
+    throw "AE: Weight cannot be 0";
   if (v == w)
     throw "Self-connected edges are not permitted";
   matrix[v][w] = weight;
@@ -70,7 +70,7 @@ void Graph::remove_edge(unsigned int v, unsigned int w) {
     throw "Vertex out of bounds";
   if (!matrix[v][w])
     throw "Edge does not exist";
-  matrix[v][w] = 0;
+  matrix[v][w] = -1;
   --num_edges;
 }
 
